@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace IlyaSapunkov\Translatable\Orchid\Screens\Locale;
 
-use IlyaSapunkov\Translatable\Models\Locale;
+use IlyaSapunkov\Translatable\Models\OrchidLocale;
 
 class LocaleEditScreen extends LocaleCreateScreen
 {
     /**
-     * @return Locale
+     * @return OrchidLocale
      */
     public $model;
 

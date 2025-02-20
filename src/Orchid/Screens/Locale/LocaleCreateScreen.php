@@ -7,7 +7,7 @@ namespace IlyaSapunkov\Translatable\Orchid\Screens\Locale;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
-use IlyaSapunkov\Translatable\Models\Locale;
+use IlyaSapunkov\Translatable\Models\OrchidLocale;
 use Orchid\Screen\Action;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Actions\Link;
@@ -20,18 +20,18 @@ use Orchid\Support\Facades\Toast;
 class LocaleCreateScreen extends Screen
 {
     /**
-     * @var Locale
+     * @var OrchidLocale
      */
     public $model;
 
     /**
      * Query data.
      *
-     * @param Locale $model
+     * @param OrchidLocale $model
      *
      * @return array
      */
-    public function query(Locale $model): array
+    public function query(OrchidLocale $model): array
     {
         return [
             'model' => $model,
@@ -111,11 +111,11 @@ class LocaleCreateScreen extends Screen
     }
 
     /**
-     * @param Locale $model
+     * @param OrchidLocale $model
      *
      * @return array
      */
-    protected function rules(Locale $model): array
+    protected function rules(OrchidLocale $model): array
     {
         return [
             'model.name' => ['required', 'max:32'],
@@ -124,7 +124,7 @@ class LocaleCreateScreen extends Screen
                 'required',
                 'max:8',
                 'alpha:ascii',
-                Rule::unique(Locale::class, 'iso')->ignore($model),
+                Rule::unique(OrchidLocale::class, 'iso')->ignore($model),
             ],
             'model.active' => ['nullable'],
         ];

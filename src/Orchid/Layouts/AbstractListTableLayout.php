@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace IlyaSapunkov\Translatable\Orchid\Layouts;
 
 use IlyaSapunkov\Translatable\Enums\BooleanEnum;
-use IlyaSapunkov\Translatable\Models\Locale;
+use IlyaSapunkov\Translatable\Models\OrchidLocale;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Components\Cells\Boolean;
@@ -77,7 +77,7 @@ abstract class AbstractListTableLayout extends Table
     }
 
     /**
-     * @param Locale $model
+     * @param OrchidLocale $model
      *
      * @return Group
      */

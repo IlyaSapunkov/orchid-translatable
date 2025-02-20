@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace IlyaSapunkov\Translatable\Orchid\Screens\Locale;
 
 use Illuminate\Http\Request;
-use IlyaSapunkov\Translatable\Models\Locale;
+use IlyaSapunkov\Translatable\Models\OrchidLocale;
 use IlyaSapunkov\Translatable\Orchid\Layouts\Locale\LocaleListTableLayout;
 use Orchid\Screen\Action;
 use Orchid\Screen\Layout;
@@ -27,7 +27,7 @@ class LocaleListScreen extends Screen
     public function query(): iterable
     {
         return [
-            'locales' => Locale::filters()->paginate(),
+            'locales' => OrchidLocale::filters()->paginate(),
         ];
     }
 
@@ -69,7 +69,7 @@ class LocaleListScreen extends Screen
      */
     public function destroy(Request $request): void
     {
-        Locale::findOrFail($request->get('id'))->delete();
+        OrchidLocale::findOrFail($request->get('id'))->delete();
 
         Toast::success(__('app.You have successfully :action the record', ['action' => __('app.deleted')]));
     }
@@ -79,7 +79,7 @@ class LocaleListScreen extends Screen
      */
     public function select(Request $request): void
     {
-        $model = Locale::findOrFail($request->get('id'));
+        $model = OrchidLocale::findOrFail($request->get('id'));
         $response = redirect()->route('platform.locales');
         $response->withCookie(cookie('locale', $model->iso, 525600));
 

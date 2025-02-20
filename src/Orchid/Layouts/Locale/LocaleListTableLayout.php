@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace IlyaSapunkov\Translatable\Orchid\Layouts\Locale;
 
-use IlyaSapunkov\Translatable\Models\Locale;
+use IlyaSapunkov\Translatable\Models\OrchidLocale;
 use IlyaSapunkov\Translatable\Orchid\Layouts\AbstractListTableLayout;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Actions\Link;
@@ -32,7 +32,7 @@ class LocaleListTableLayout extends AbstractListTableLayout
             [
                 TD::make('name', __('locale.Name'))
                     ->filter(Input::make())
-                    ->render(function (Locale $model) {
+                    ->render(function (OrchidLocale $model) {
                         return Link::make($model->name)
                             ->route('platform.locales.edit', $model);
                     }),
