@@ -34,7 +34,7 @@ class LocaleListTableLayout extends AbstractListTableLayout
                     ->filter(Input::make())
                     ->render(function (OrchidLocale $model) {
                         return Link::make($model->name)
-                            ->route('platform.locales.edit', $model);
+                            ->route('translatable.locales.edit', $model);
                     }),
                 TD::make('name_short', __('locale.Short name'))
                     ->filter(Input::make()),
@@ -64,7 +64,7 @@ class LocaleListTableLayout extends AbstractListTableLayout
 
             Link::make('')
                 ->icon('bs.pencil')
-                ->route('platform.locales.edit', ['model' => $model->id]),
+                ->route('translatable.locales.edit', ['model' => $model->id]),
         ]);
     }
 
@@ -73,6 +73,6 @@ class LocaleListTableLayout extends AbstractListTableLayout
      */
     protected function getRoute(): string
     {
-        return 'platform.locales';
+        return 'translatable.locales';
     }
 }

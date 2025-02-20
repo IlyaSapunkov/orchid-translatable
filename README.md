@@ -73,8 +73,8 @@ In Orchid/PlatformProvider.php add menu
       //...
       Menu::make(__('app.Locales'))
          ->icon('bs.globe')
-         ->route('platform.locales')
-         ->permission('platform.locales'),
+         ->route('translatable.locales')
+         ->permission('translatable.locales'),
       //...
       ];
     }

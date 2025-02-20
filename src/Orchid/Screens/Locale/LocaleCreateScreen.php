@@ -54,7 +54,7 @@ class LocaleCreateScreen extends Screen
     public function commandBar(): iterable
     {
         return [
-            Link::make('Cancel')->route('platform.locales'),
+            Link::make('Cancel')->route('translatable.locales'),
             Button::make('Save')
                 ->method('save'),
         ];
@@ -107,7 +107,7 @@ class LocaleCreateScreen extends Screen
 
         Toast::success(__('app.You have successfully :action the record', ['action' => __($action)]));
 
-        return redirect()->route('platform.locales');
+        return redirect()->route('translatable.locales');
     }
 
     /**

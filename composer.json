@@ -14,7 +14,6 @@
     "laravel/framework": "^11.0",
     "orchid/platform": "^14.44",
     "ilyasapunkov/laravel-translatable": "*"
-
   },
   "require-dev": {
     "krok/laravel-pint": "^1.0"
@@ -25,12 +24,12 @@
     }
   },
   "extra": {
-  "laravel": {
-    "providers": [
-      "IlyaSapunkov\\Translatable\\Providers\\TranslatableOrchidServiceProvider"
-    ]
-  }
-},
+    "laravel": {
+      "providers": [
+        "IlyaSapunkov\\Translatable\\Providers\\TranslatableOrchidServiceProvider"
+      ]
+    }
+  },
   "scripts": {
     "pint": "pint --config=vendor/krok/laravel-pint/src/pint.json",
     "cs": [

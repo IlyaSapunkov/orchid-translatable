@@ -10,21 +10,21 @@ use Tabuna\Breadcrumbs\Trail;
 
 // Platform > Content > Locales
 Route::screen('locales', LocaleListScreen::class)
-    ->name('platform.locales')
+    ->name('translatable.locales')
     ->breadcrumbs(fn (Trail $trail) => $trail
         ->parent('platform.index')
-        ->push(__('app.Locales'), route('platform.locales')));
+        ->push(__('app.Locales'), route('translatable.locales')));
 
 // Platform > Content > Locales > Locale
 Route::screen('locales/{model}/edit', LocaleEditScreen::class)
-    ->name('platform.locales.edit')
+    ->name('translatable.locales.edit')
     ->breadcrumbs(fn (Trail $trail, $model) => $trail
-        ->parent('platform.locales')
-        ->push($model->name, route('platform.locales.edit', $model)));
+        ->parent('translatable.locales')
+        ->push($model->name, route('translatable.locales.edit', $model)));
 
 // Platform > Content > Locales > Create
 Route::screen('locales/create', LocaleCreateScreen::class)
-    ->name('platform.locales.create')
+    ->name('translatable.locales.create')
     ->breadcrumbs(fn (Trail $trail) => $trail
-        ->parent('platform.locales')
-        ->push(__('Create'), route('platform.locales.create')));
+        ->parent('translatable.locales')
+        ->push(__('Create'), route('translatable.locales.create')));

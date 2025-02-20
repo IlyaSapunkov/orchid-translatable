@@ -80,7 +80,7 @@ class LocaleListScreen extends Screen
     public function select(Request $request): void
     {
         $model = OrchidLocale::findOrFail($request->get('id'));
-        $response = redirect()->route('platform.locales');
+        $response = redirect()->route('translatable.locales');
         $response->withCookie(cookie('locale', $model->iso, 525600));
 
         Toast::success(__('app.You have successfully selected :name language', ['name' => $model->name]));
