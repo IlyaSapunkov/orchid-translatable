@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace IlyaSapunkov\Translatable\Models;
 
 use Orchid\Filters\Filterable;
+use Orchid\Screen\AsSource;
 
 /**
  * @property int $id
@@ -15,6 +16,7 @@ use Orchid\Filters\Filterable;
  */
 class OrchidLocale extends Locale
 {
+    use asSource;
     use Filterable;
 
     /**

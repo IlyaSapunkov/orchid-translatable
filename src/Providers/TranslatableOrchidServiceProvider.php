@@ -15,7 +15,6 @@ class TranslatableOrchidServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
-        $this->loadRoutesFrom(__DIR__ . '/../../routes/locales.php');
-        $this->app['router']->pushMiddlewareToGroup('web', LocaleMiddleware::class);
+        $this->app['router']->prependMiddlewareToGroup('web', LocaleMiddleware::class);
     }
 }

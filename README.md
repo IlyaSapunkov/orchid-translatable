@@ -79,3 +79,28 @@ In Orchid/PlatformProvider.php add menu
       ];
     }
 ```
+
+In routes/platform.php add
+
+```php
+// Platform > Content > Locales
+    Route::screen('locales', LocaleListScreen::class)
+        ->name('translatable.locales')
+        ->breadcrumbs(fn (Trail $trail) => $trail
+            ->parent('platform.index')
+            ->push(__('app.Locales'), route('translatable.locales')));
+
+// Platform > Content > Locales > Locale
+    Route::screen('locales/{model}/edit', LocaleEditScreen::class)
+        ->name('translatable.locales.edit')
+        ->breadcrumbs(fn (Trail $trail, $model) => $trail
+            ->parent('translatable.locales')
+            ->push($model->name, route('translatable.locales.edit', $model)));
+
+// Platform > Content > Locales > Create
+    Route::screen('locales/create', LocaleCreateScreen::class)
+        ->name('translatable.locales.create')
+        ->breadcrumbs(fn (Trail $trail) => $trail
+            ->parent('translatable.locales')
+            ->push(__('Create'), route('translatable.locales.create')));
+```
